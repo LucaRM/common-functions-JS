@@ -1,6 +1,6 @@
 {
   "name": "common-functions-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A library of commonly used functions so we never have to write the same functions again",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,13 @@
     "type": "git",
     "url": "git+https://github.com/LucaRM/common-functions-JS.git"
   },
+  "keywords": [
+	"common",
+	"functions",
+	"javascript",
+	"js",
+	"library",
+	"utils"],
   "author": "",
   "license": "ISC",
   "bugs": {
