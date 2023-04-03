@@ -1,3 +1,8 @@
-export const DevEnv = ["dev", "localhost"];
+const DevEnv = ["dev", "localhost"];
 
-export const SeparateLink = ["/", ".", ":"];
+const linkDelimiter = ["/", ".", ":"];
+
+module.exports = {
+    DevEnv,
+    SeparateLink: linkDelimiter,
+};

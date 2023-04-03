@@ -1,36 +1,42 @@
-function checkDeadline(endTime) {
-  const deadline = moment(endTime);
-  const today = moment();
-  const rest = moment
-    .duration(+deadline.format("x") - +today.format("x"), "milliseconds")
-    .asMilliseconds();
-
-  return rest < 0 ? true : false;
-}
-
-function isDevEnv() {
-  return (
-    window.location.href.split(".").includes("dev") ||
-    window.location.href.split("/").includes("localhost:3000")
-  );
-}
+const {DevEnv, SeparateLink: linkDelimiter} = require("./customLists");
 
 function separateLink(str) {
-  const delimiters = [":", "//", "."];
+    const delimiters = linkDelimiter;
 
-  return str.split("").reduce((result, char, index, arr) => {
-    if (delimiters.includes(char)) {
-      if (index > 0 && !delimiters.includes(arr[index - 1])) {
-        result.push(str.slice(0, index));
-        str = str.slice(index);
-        index = 0;
-      }
-    }
-
-    if (index === arr.length - 1) {
-      result.push(str);
-    }
-
-    return result;
-  }, []);
+    return str.split("").reduce((result, char, index, arr) => {
+        if (delimiters.includes(char)) {
+            if (index > 0 && !delimiters.includes(arr[index - 1])) {
+                result.push(str.slice(0, index));
+                str = str.slice(index);
+                index = 0;
+            }
+        }
+        if (index === arr.length - 1) {
+            result.push(str);
+        }
+        return result;
+    }, []);
 }
+
+function isDevEnv(link) {
+    const linkArr = separateLink(link);
+    const delimiters = DevEnv;
+
+    for (let i = 0; i < linkArr.length; i++) {
+        for (let x = 0; x < delimiters.length; x++) {
+            if (linkArr[i] === delimiters[x]) {
+                return true;
+            }
+        }
+    }
+}
+
+function shortHash(hash, limit = 6) {
+    return hash.slice(0, limit) + "...";
+}
+
+module.exports = {
+    isDevEnv,
+    shortHash,
+    separateLink,
+};

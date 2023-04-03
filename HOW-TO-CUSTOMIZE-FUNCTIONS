@@ -3,4 +3,10 @@ To customize the functions, you can change and add values into the customLists.j
 The functions you can customize and how to do it can be found below.
 
 # isDevEnv
-    - In the custom list DevEnv you can change 
+    - In the custom list DevEnv you can add or modify the list to better suit your needs.
+
+#  shortHash
+	- When calling shortHash you can pass the number of digits you wish the new code to be. If you don't the system will use the default first 6.
+
+# separateLink
+	- In the custom list linkDelimiter you can add or modify the list to better suit your needs.
