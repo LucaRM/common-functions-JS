@@ -1,0 +1,6 @@
+To customize the functions, you can change and add values into the customLists.js, and you will safely customize the functions to your needs.
+
+The functions you can customize and how to do it can be found below.
+
+# isDevEnv
+    - In the custom list DevEnv you can change 
