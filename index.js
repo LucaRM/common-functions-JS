@@ -1,5 +1,9 @@
 const {DevEnv, SeparateLink: linkDelimiter} = require("./customLists");
 
+function viaGluck() {
+    return "Via Gluck";
+}
+
 function separateLink(str) {
     const delimiters = linkDelimiter;
 
@@ -35,8 +39,31 @@ function shortHash(hash, limit = 6) {
     return hash.slice(0, limit) + "...";
 }
 
+function easyEncript(str) {
+    return str
+        .split("")
+        .map((char, index) => {
+            return charCodeAt(0).length * 100 + char.charCodeAt(0);
+        })
+        .join("");
+}
+
+function easyDecrypt(str) {
+    return str
+        .split("")
+        .map((char, index) => {
+            return String.fromCharCode(char - index);
+        })
+        .join("");
+}
+
+// Export all functions
+
 module.exports = {
     isDevEnv,
     shortHash,
     separateLink,
+    viaGluck,
+    easyEncript,
+    easyDecrypt,
 };
